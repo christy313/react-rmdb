@@ -8,6 +8,8 @@ This is a react movie app:
 
 3. Movie thumb with introduction
 
+[Live demo](https://celebrated-daifuku-06cf07.netlify.app/)
+
 ![](./image/react-rmdb.gif)
 
 ## Available Scripts
