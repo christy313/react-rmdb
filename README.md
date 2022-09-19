@@ -10,7 +10,69 @@ This is a react movie app:
 
 [Live demo](https://celebrated-daifuku-06cf07.netlify.app/)
 
-![](./image/react-rmdb.gif)
+![](./public/react-rmdb.gif)
+
+## Stack
+
+React / Hooks / styled-component
+
+## File structure
+
+```
+.
+└── src
+    ├── API.js
+    ├── App.js
+    ├── GlobalStyle.js
+    ├── components
+    │   ├── Actor
+    │   │   ├── Actor.styles.js
+    │   │   └── index.js
+    │   ├── BreadCrumb
+    │   │   ├── BreadCrumb.styles.js
+    │   │   └── index.js
+    │   ├── Button
+    │   │   ├── Button.styles.js
+    │   │   └── index.js
+    │   ├── Grid
+    │   │   ├── Grid.styles.js
+    │   │   └── index.js
+    │   ├── Header
+    │   │   ├── Header.styles.js
+    │   │   └── index.js
+    │   ├── HeroImage
+    │   │   ├── HeroImage.styles.js
+    │   │   └── index.js
+    │   ├── Home.js
+    │   ├── Movie.js
+    │   ├── MovieInfo
+    │   │   ├── MovieInfo.styles.js
+    │   │   └── index.js
+    │   ├── MovieInfoBar
+    │   │   ├── MovieInfoBar.styles.js
+    │   │   └── index.js
+    │   ├── NotFound.js
+    │   ├── SearchBar
+    │   │   ├── SearchBar.styles.js
+    │   │   └── index.js
+    │   ├── Spinner
+    │   │   ├── Spinner.styles.js
+    │   │   └── index.js
+    │   └── Thumb
+    │       ├── Thumb.styles.js
+    │       └── index.js
+    ├── config.js
+    ├── helpers.js
+    ├── hooks
+    │   ├── useHomeFetch.js
+    │   └── useMovieFetch.js
+    ├── images
+    │   ├── no_image.jpg
+    │   ├── react-movie-logo.svg
+    │   ├── search-icon.svg
+    │   └── tmdb_logo.svg
+    └── index.js
+```
 
 ## Available Scripts
 
