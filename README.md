@@ -8,7 +8,7 @@ This is a react movie app:
 
 3. Movie thumb with introduction
 
-[Live demo](https://celebrated-daifuku-06cf07.netlify.app/)
+[Live demo](https://ilovemovie.netlify.app/)
 
 ![](./public/react-rmdb.gif)
 
