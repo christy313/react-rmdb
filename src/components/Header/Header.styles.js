@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Wrapper = styled.div`
   background: var(--darkGrey);
@@ -12,6 +13,16 @@ export const Content = styled.div`
   max-width: var(--maxWidth);
   padding: 20px 0;
   margin: 0 auto;
+`;
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: white;
+  margin-left: 12px;
+
+  &:hover {
+    color: green;
+  }
 `;
 
 export const LogoImg = styled.img`
