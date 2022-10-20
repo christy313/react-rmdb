@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import Home from "./components/Home";
 import Movie from "./components/Movie";
 import NotFound from "./components/NotFound";
+import Alert from "./components/Alert";
 
 const App = () => (
   <Router>
@@ -16,6 +17,7 @@ const App = () => (
       <Route path="/:movieId" element={<Movie />} />
       <Route path="/*" element={<NotFound />} />
     </Routes>
+    <Alert />
     <GlobalStyle />
   </Router>
 );

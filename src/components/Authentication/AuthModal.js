@@ -4,6 +4,9 @@ import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 
+import Login from "../Authentication/Login";
+import Signup from "../Authentication/Signup";
+
 import { Button, Tab, Tabs, AppBar } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
@@ -13,7 +16,10 @@ const useStyles = makeStyles(theme => ({
     justifyContent: "center"
   },
   paper: {
+    width: 400,
     backgroundColor: theme.palette.background.paper,
+    color: "black",
+    borderRadius: 10,
     border: "2px solid #000",
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3)
@@ -78,6 +84,9 @@ export default function AuthModal() {
                 <Tab label="Sign Up" />
               </Tabs>
             </AppBar>
+
+            {value === 0 && <Login handleClose={handleClose} />}
+            {value === 1 && <Signup handleClose={handleClose} />}
           </div>
         </Fade>
       </Modal>
