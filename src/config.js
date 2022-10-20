@@ -17,6 +17,16 @@ const BACKDROP_SIZE = "w1280";
 // w92, w154, w185, w342, w500, w780, original
 const POSTER_SIZE = "w780";
 
+const firebaseConfig = {
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTHDOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
+};
+
 export {
   SEARCH_BASE_URL,
   POPULAR_BASE_URL,
@@ -27,5 +37,6 @@ export {
   POSTER_SIZE,
   REQUEST_TOKEN_URL,
   LOGIN_URL,
-  SESSION_ID_URL
+  SESSION_ID_URL,
+  firebaseConfig
 };
