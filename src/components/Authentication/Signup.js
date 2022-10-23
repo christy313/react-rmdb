@@ -24,7 +24,7 @@ const Signup = () => {
         email,
         password
       );
-      handleClose();
+      // handleClose();
     } catch (error) {}
   };
 

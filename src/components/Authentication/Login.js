@@ -1,11 +1,17 @@
 import React, { useState } from "react";
 import { Box, Button, TextField } from "@material-ui/core";
+import { signInWithEmailAndPassword } from "@firebase/auth";
+import { auth } from "../../firebase";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handelSubmit = () => {};
+  const handelSubmit = async () => {
+    try {
+      const result = await signInWithEmailAndPassword(auth, email, password);
+    } catch (error) {}
+  };
 
   return (
     <Box
@@ -35,7 +41,7 @@ const Login = () => {
         style={{ backgroundColor: "white" }}
         onClick={handelSubmit}
       >
-        Sign Up
+        Login
       </Button>
     </Box>
   );
