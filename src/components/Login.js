@@ -4,23 +4,61 @@ import API from "../API";
 
 import Button from "./Button";
 import { Wrapper } from "./Login.styles";
-import Context from "../context";
+import { Context } from "../context";
 
 const Login = () => {
-  const handleSubmit = () => {};
-  const handleInput = e => {};
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(false);
+
+  const [user, setUser] = useContext(Context);
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async () => {
+    setError(false);
+    try {
+      const requestToken = await API.getRequestToken();
+      const sessionId = await API.authenticate(
+        requestToken,
+        username,
+        password
+      );
+      console.log(sessionId);
+      setUser({ sessionId: sessionId.session_id, username });
+
+      navigate("/");
+    } catch (error) {
+      setError(true);
+    }
+  };
+
+  const handleInput = e => {
+    const name = e.currentTarget.name;
+    const value = e.currentTarget.value;
+
+    if (name === "username") setUsername(value);
+    if (name === "password") setPassword(value);
+  };
 
   return (
     <Wrapper>
+      {error && <div className="error">Oops! Something went wrong!</div>}
       <label htmlFor="">Username:</label>
-      <input type="text" value="state" name="username" onChange={handleInput} />
+      <input
+        type="text"
+        value={username}
+        name="username"
+        onChange={handleInput}
+      />
+      <label htmlFor="">Password:</label>
       <input
         type="password"
-        value="state"
+        value={password}
         name="password"
         onChange={handleInput}
       />
-      <Button text="Login" callback={handleSubmit}></Button>
+      <Button text="Login" callback={handleSubmit} />
     </Wrapper>
   );
 };
