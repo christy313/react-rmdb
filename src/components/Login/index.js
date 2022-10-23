@@ -1,10 +1,10 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import API from "../API";
+import API from "../../API";
 
-import Button from "./Button";
+import Button from "../Button";
 import { Wrapper } from "./Login.styles";
-import { Context } from "../context";
+import { Context } from "../../context";
 
 const Login = () => {
   const [username, setUsername] = useState("");
