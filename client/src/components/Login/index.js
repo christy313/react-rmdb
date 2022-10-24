@@ -3,10 +3,10 @@ import { useNavigate } from "react-router-dom";
 import API from "../../API";
 
 import Button from "../Button";
-import { Wrapper } from "./Signup.styles";
+import { Wrapper } from "./Login.styles";
 import { Context } from "../../context";
 
-const Signup = () => {
+const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
@@ -44,6 +44,7 @@ const Signup = () => {
   return (
     <Wrapper>
       {error && <div className="error">Oops! Something went wrong!</div>}
+      <h2>Login</h2>
       <label htmlFor="">Username:</label>
       <input
         type="text"
@@ -58,9 +59,9 @@ const Signup = () => {
         name="password"
         onChange={handleInput}
       />
-      <Button text="Signup" callback={handleSubmit} />
+      <Button text="Login" callback={handleSubmit} />
     </Wrapper>
   );
 };
 
-export default Signup;
+export default Login;
