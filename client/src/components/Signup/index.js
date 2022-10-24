@@ -8,6 +8,7 @@ import { Context } from "../../context";
 
 const Signup = () => {
   const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
 
@@ -39,20 +40,25 @@ const Signup = () => {
 
     if (name === "username") setUsername(value);
     if (name === "password") setPassword(value);
+    if (name === "email") setEmail(value);
+
+    console.log(value);
   };
 
   return (
     <Wrapper>
       {error && <div className="error">Oops! Something went wrong!</div>}
       <h2>Sign Up</h2>
-      <label htmlFor="">Username:</label>
+      <label htmlFor="username">Username:</label>
       <input
         type="text"
         value={username}
         name="username"
         onChange={handleInput}
       />
-      <label htmlFor="">Password:</label>
+      <label htmlFor="email">Email:</label>
+      <input type="email" value={email} name="email" onChange={handleInput} />
+      <label htmlFor="password">Password:</label>
       <input
         type="password"
         value={password}

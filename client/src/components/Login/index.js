@@ -7,7 +7,7 @@ import { Wrapper } from "./Login.styles";
 import { Context } from "../../context";
 
 const Login = () => {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
 
@@ -19,13 +19,9 @@ const Login = () => {
     setError(false);
     try {
       const requestToken = await API.getRequestToken();
-      const sessionId = await API.authenticate(
-        requestToken,
-        username,
-        password
-      );
+      const sessionId = await API.authenticate(requestToken, email, password);
       console.log(sessionId);
-      setUser({ sessionId: sessionId.session_id, username });
+      setUser({ sessionId: sessionId.session_id, email });
 
       navigate("/");
     } catch (error) {
@@ -37,7 +33,7 @@ const Login = () => {
     const name = e.target.name;
     const value = e.target.value;
 
-    if (name === "username") setUsername(value);
+    if (name === "email") setEmail(value);
     if (name === "password") setPassword(value);
   };
 
@@ -45,14 +41,9 @@ const Login = () => {
     <Wrapper>
       {error && <div className="error">Oops! Something went wrong!</div>}
       <h2>Login</h2>
-      <label htmlFor="">Username:</label>
-      <input
-        type="text"
-        value={username}
-        name="username"
-        onChange={handleInput}
-      />
-      <label htmlFor="">Password:</label>
+      <label htmlFor="email">email:</label>
+      <input type="email" value={email} name="email" onChange={handleInput} />
+      <label htmlFor="password">Password:</label>
       <input
         type="password"
         value={password}
