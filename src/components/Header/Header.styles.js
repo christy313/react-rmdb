@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Wrapper = styled.div`
   background: var(--darkGrey);
@@ -34,5 +35,15 @@ export const TMDBLogoImg = styled.img`
 
   @media screen and (max-width: 500px) {
     width: 80px;
+  }
+`;
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: white;
+  margin-left: 12px;
+
+  &:hover {
+    color: green;
   }
 `;

@@ -3,10 +3,10 @@ import { useNavigate } from "react-router-dom";
 import API from "../../API";
 
 import Button from "../Button";
-import { Wrapper } from "./Login.styles";
+import { Wrapper } from "./Signup.styles";
 import { Context } from "../../context";
 
-const Login = () => {
+const Signup = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
@@ -58,9 +58,9 @@ const Login = () => {
         name="password"
         onChange={handleInput}
       />
-      <Button text="Login" callback={handleSubmit} />
+      <Button text="Signup" callback={handleSubmit} />
     </Wrapper>
   );
 };
 
-export default Login;
+export default Signup;

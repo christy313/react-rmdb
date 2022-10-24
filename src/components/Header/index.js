@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import TMDBLogo from "../../images/tmdb_logo.svg";
 
-import { Wrapper, Content, TMDBLogoImg } from "./Header.styles";
+import { Wrapper, Content, TMDBLogoImg, StyledLink } from "./Header.styles";
 
 import { Context } from "../../context";
 
@@ -22,9 +22,14 @@ const Header = () => {
             <span>{`Hi, ${user.username}`}</span>
           </Link>
         ) : (
-          <Link to="/login">
-            <span>Login</span>
-          </Link>
+          <div>
+            <StyledLink to="/login">
+              <span>Login</span>
+            </StyledLink>
+            <StyledLink to="/signup">
+              <span>Sign up</span>
+            </StyledLink>
+          </div>
         )}
       </Content>
     </Wrapper>
