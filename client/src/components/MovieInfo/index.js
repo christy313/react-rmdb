@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import API from "../../API";
 import PropTypes from "prop-types";
 import Thumb from "../Thumb";
-import Rate from "../Rate";
+import AddToFavorite from "../AddToFavorite";
 import { IMAGE_BASE_URL, POSTER_SIZE } from "../../config";
 import NoImage from "../../images/no_image.jpg";
 import { Wrapper, Content, Text } from "./MovieInfo.styles";
@@ -12,7 +12,7 @@ import { Context } from "../../context";
 const MovieInfo = ({ movie }) => {
   const [user] = useContext(Context);
 
-  const handleRating = async value => {
+  const handleFavorite = async value => {
     const rate = await API.rateMovie(user.sessionId, movie.id, value);
     console.log(rate);
   };
@@ -46,8 +46,7 @@ const MovieInfo = ({ movie }) => {
           </div>
           {user && (
             <div>
-              <p>Rate Movie</p>
-              <Rate callback={handleRating} />
+              <AddToFavorite callback={handleFavorite} />
             </div>
           )}
         </Text>
