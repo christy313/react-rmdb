@@ -26,7 +26,6 @@ const Login = () => {
   };
 
   const handleSubmit = () => {
-    setError(false);
     try {
       fetch("http://localhost:8080/login", {
         method: "POST",
@@ -41,7 +40,7 @@ const Login = () => {
       })
         .then(res => res.json())
         .then(user => {
-          if (user) {
+          if (user.id) {
             setUser({
               id: user.id,
               username: user.username,
@@ -51,7 +50,7 @@ const Login = () => {
           }
         });
     } catch (error) {
-      setError(true);
+      console.log(error);
     }
   };
 
