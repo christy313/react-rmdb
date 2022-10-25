@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import TMDBLogo from "../../images/tmdb_logo.svg";
 
@@ -8,8 +8,14 @@ import { Wrapper, Content, TMDBLogoImg, StyledLink } from "./Header.styles";
 import { Context } from "../../context";
 
 const Header = () => {
-  const [user] = useContext(Context);
-  // console.log(user);
+  const [user, setUser] = useContext(Context);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    setUser(null);
+    navigate("/");
+  };
+
   return (
     <Wrapper>
       <Content>
@@ -17,14 +23,20 @@ const Header = () => {
           <TMDBLogoImg src={TMDBLogo} alt="tmdb-logo" />
         </Link>
 
-        <div>
-          <StyledLink to="/login">
-            <span>Login</span>
+        {user ? (
+          <StyledLink to="/" onClick={handleLogout}>
+            <span>Logout</span>
           </StyledLink>
-          <StyledLink to="/signup">
-            <span>Sign up</span>
-          </StyledLink>
-        </div>
+        ) : (
+          <div>
+            <StyledLink to="/login">
+              <span>Login</span>
+            </StyledLink>
+            <StyledLink to="/signup">
+              <span>Sign up</span>
+            </StyledLink>
+          </div>
+        )}
       </Content>
     </Wrapper>
   );

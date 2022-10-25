@@ -4,14 +4,14 @@ import { useNavigate } from "react-router-dom";
 
 import Button from "../Button";
 import { Wrapper } from "./Login.styles";
-// import { Context } from "../../context";
+import { Context } from "../../context";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
 
-  // const [user, setUser] = useContext(Context);
+  const [user, setUser] = useContext(Context);
 
   const navigate = useNavigate();
 
@@ -37,8 +37,13 @@ const Login = () => {
         })
       })
         .then(res => res.json())
-        .then(data => {
-          if (data === "success") {
+        .then(user => {
+          if (user) {
+            setUser({
+              id: user.id,
+              username: user.username,
+              email: user.email
+            });
             navigate("/");
           }
         });
