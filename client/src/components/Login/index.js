@@ -7,6 +7,7 @@ import { Wrapper } from "./Login.styles";
 import { Context } from "../../context";
 
 const Login = () => {
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
@@ -19,6 +20,7 @@ const Login = () => {
     const name = e.target.name;
     const value = e.target.value;
 
+    if (name === "username") setUsername(value);
     if (name === "email") setEmail(value);
     if (name === "password") setPassword(value);
   };
@@ -32,6 +34,7 @@ const Login = () => {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
+          username,
           email,
           password
         })
@@ -56,7 +59,15 @@ const Login = () => {
     <Wrapper>
       {error && <div className="error">Oops! Something went wrong!</div>}
       <h2>Login</h2>
-      <label htmlFor="email">email:</label>
+      <label htmlFor="username">Username:</label>
+      <input
+        type="username"
+        value={username}
+        name="username"
+        onChange={handleInput}
+      />
+
+      <label htmlFor="email">Email:</label>
       <input type="email" value={email} name="email" onChange={handleInput} />
       <label htmlFor="password">Password:</label>
       <input

@@ -1,6 +1,20 @@
 import express from "express";
 import bcrypt from "bcrypt";
 import cors from "cors";
+import knex from "knex";
+
+const postgres = knex({
+  client: "pg",
+  connection: {
+    host: "127.0.0.1",
+    port: 3306,
+    user: "christy",
+    password: "",
+    database: "movie",
+  },
+});
+
+console.log(postgres.select("*").from("users"));
 
 const app = express();
 const saltRounds = 10;
