@@ -9,7 +9,7 @@ import { Context } from "../../context";
 
 const Header = () => {
   const [user] = useContext(Context);
-  console.log(user);
+  // console.log(user);
   return (
     <Wrapper>
       <Content>
@@ -17,20 +17,14 @@ const Header = () => {
           <TMDBLogoImg src={TMDBLogo} alt="tmdb-logo" />
         </Link>
 
-        {user ? (
-          <Link to="/">
-            <span>{`Hi, ${user.username}`}</span>
-          </Link>
-        ) : (
-          <div>
-            <StyledLink to="/login">
-              <span>Login</span>
-            </StyledLink>
-            <StyledLink to="/signup">
-              <span>Sign up</span>
-            </StyledLink>
-          </div>
-        )}
+        <div>
+          <StyledLink to="/login">
+            <span>Login</span>
+          </StyledLink>
+          <StyledLink to="/signup">
+            <span>Sign up</span>
+          </StyledLink>
+        </div>
       </Content>
     </Wrapper>
   );

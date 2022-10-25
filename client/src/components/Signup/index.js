@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import API from "../../API";
+// import API from "../../API";
 
 import Button from "../Button";
 import { Wrapper } from "./Signup.styles";
@@ -16,19 +16,31 @@ const Signup = () => {
 
   const navigate = useNavigate();
 
-  const handleSubmit = async () => {
+  const handleSubmit = () => {
     setError(false);
     try {
-      const requestToken = await API.getRequestToken();
-      const sessionId = await API.authenticate(
-        requestToken,
-        username,
-        password
-      );
-      console.log(sessionId);
-      setUser({ sessionId: sessionId.session_id, username });
-
-      navigate("/");
+      fetch("http://localhost:8080/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          username: username,
+          email: email,
+          password: password
+        })
+      })
+        .then(res => res.json())
+        .then(user => {
+          if (user) {
+            setUser({
+              id: user.id,
+              username: user.username,
+              email: user.email
+            });
+            navigate("/");
+          }
+        });
     } catch (error) {
       setError(true);
     }
@@ -41,8 +53,6 @@ const Signup = () => {
     if (name === "username") setUsername(value);
     if (name === "password") setPassword(value);
     if (name === "email") setEmail(value);
-
-    console.log(value);
   };
 
   return (
@@ -56,8 +66,10 @@ const Signup = () => {
         name="username"
         onChange={handleInput}
       />
+
       <label htmlFor="email">Email:</label>
       <input type="email" value={email} name="email" onChange={handleInput} />
+
       <label htmlFor="password">Password:</label>
       <input
         type="password"

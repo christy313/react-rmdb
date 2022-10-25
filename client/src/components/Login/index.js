@@ -1,33 +1,19 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import API from "../../API";
+// import API from "../../API";
 
 import Button from "../Button";
 import { Wrapper } from "./Login.styles";
-import { Context } from "../../context";
+// import { Context } from "../../context";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
 
-  const [user, setUser] = useContext(Context);
+  // const [user, setUser] = useContext(Context);
 
   const navigate = useNavigate();
-
-  const handleSubmit = async () => {
-    setError(false);
-    try {
-      const requestToken = await API.getRequestToken();
-      const sessionId = await API.authenticate(requestToken, email, password);
-      console.log(sessionId);
-      setUser({ sessionId: sessionId.session_id, email });
-
-      navigate("/");
-    } catch (error) {
-      setError(true);
-    }
-  };
 
   const handleInput = e => {
     const name = e.target.name;
@@ -35,6 +21,30 @@ const Login = () => {
 
     if (name === "email") setEmail(value);
     if (name === "password") setPassword(value);
+  };
+
+  const handleSubmit = () => {
+    setError(false);
+    try {
+      fetch("http://localhost:8080/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          email,
+          password
+        })
+      })
+        .then(res => res.json())
+        .then(data => {
+          if (data === "success") {
+            navigate("/");
+          }
+        });
+    } catch (error) {
+      setError(true);
+    }
   };
 
   return (
