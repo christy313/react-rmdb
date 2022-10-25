@@ -22,7 +22,7 @@ const Header = () => {
         <Link to="/">
           <TMDBLogoImg src={TMDBLogo} alt="tmdb-logo" />
         </Link>
-        {user && <span>{user.username}</span>}
+        {user && <span>{`Hi, ${user.username}`}</span>}
         {user ? (
           <StyledLink to="/" onClick={handleLogout}>
             <span>Logout</span>
