@@ -41,7 +41,7 @@ export const TMDBLogoImg = styled.img`
 export const StyledLink = styled(Link)`
   text-decoration: none;
   color: white;
-  margin-left: 12px;
+  padding: 8px;
 
   &:hover {
     color: green;

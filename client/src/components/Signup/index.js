@@ -17,6 +17,10 @@ const Signup = () => {
   const navigate = useNavigate();
 
   const handleSubmit = () => {
+    if (!username || !password || !email) {
+      setError(true);
+      return;
+    }
     setError(false);
     try {
       fetch("http://localhost:8080/signup", {

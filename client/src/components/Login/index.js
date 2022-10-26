@@ -26,6 +26,11 @@ const Login = () => {
   };
 
   const handleSubmit = () => {
+    if (!username || !password || !email) {
+      setError(true);
+      return;
+    }
+
     try {
       fetch("http://localhost:8080/login", {
         method: "POST",

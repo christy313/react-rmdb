@@ -1,17 +1,12 @@
 import React, { useState } from "react";
 
-const AddToFavorite = ({ callback }) => {
-  const [value, setValue] = useState(5);
+const AddToFavorite = () => {
+  const [favorited, setFavorited] = useState(false);
+
   return (
     <div>
       <p>
-        <button
-          onClick={() => {
-            callback(value);
-          }}
-        >
-          Add to favorite
-        </button>
+        <button>{favorited ? "Remove favorite" : "Add to favorite"}</button>
       </p>
     </div>
   );
