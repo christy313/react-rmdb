@@ -17,11 +17,8 @@ const Signup = () => {
   const navigate = useNavigate();
 
   const handleSubmit = () => {
-    if (!username || !password || !email) {
-      setError(true);
-      return;
-    }
-    setError(false);
+    if (!username || !password || !email) return setError(true);
+
     try {
       fetch("http://localhost:8080/signup", {
         method: "POST",
@@ -36,7 +33,7 @@ const Signup = () => {
       })
         .then(res => res.json())
         .then(user => {
-          if (user) {
+          if (user.id) {
             setUser({
               id: user.id,
               username: user.username,

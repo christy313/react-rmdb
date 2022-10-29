@@ -26,10 +26,7 @@ const Login = () => {
   };
 
   const handleSubmit = () => {
-    if (!username || !password || !email) {
-      setError(true);
-      return;
-    }
+    if (!username || !password || !email) return setError(true);
 
     try {
       fetch("http://localhost:8080/login", {

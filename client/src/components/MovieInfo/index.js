@@ -1,4 +1,6 @@
 import React, { useContext } from "react";
+import { useParams } from "react-router-dom";
+
 import API from "../../API";
 import PropTypes from "prop-types";
 import Thumb from "../Thumb";
@@ -9,13 +11,11 @@ import { Wrapper, Content, Text } from "./MovieInfo.styles";
 
 import { Context } from "../../context";
 
+// import { useMovieFetch } from "../../hooks/useMovieFetch";
+
 const MovieInfo = ({ movie }) => {
   const [user] = useContext(Context);
-
-  const handleFavorite = async value => {
-    const rate = await API.rateMovie(user.sessionId, movie.id, value);
-    console.log(rate);
-  };
+  const handleFavorite = async () => {};
 
   return (
     <Wrapper backdrop={movie.backdrop_path}>
@@ -45,9 +45,10 @@ const MovieInfo = ({ movie }) => {
             </div>
           </div>
           {user && (
-            <div>
-              <AddToFavorite callback={handleFavorite} />
-            </div>
+            <AddToFavorite
+              backdrop={movie.backdrop_path}
+              callback={handleFavorite}
+            />
           )}
         </Text>
       </Content>
