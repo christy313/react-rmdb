@@ -1,5 +1,6 @@
 {
   "name": "react-rmdb",
+  "homepage" : "https://ilovemovie.netlify.app/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
