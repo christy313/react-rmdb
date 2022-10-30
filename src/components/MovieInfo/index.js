@@ -11,8 +11,6 @@ import { Wrapper, Content, Text } from "./MovieInfo.styles";
 
 import { Context } from "../../context";
 
-// import { useMovieFetch } from "../../hooks/useMovieFetch";
-
 const MovieInfo = ({ movie }) => {
   const [user] = useContext(Context);
   const handleFavorite = async () => {};
@@ -44,12 +42,12 @@ const MovieInfo = ({ movie }) => {
               ))}
             </div>
           </div>
-          {user && (
+          {/* {user && (
             <AddToFavorite
               backdrop={movie.backdrop_path}
               callback={handleFavorite}
             />
-          )}
+          )} */}
         </Text>
       </Content>
     </Wrapper>
