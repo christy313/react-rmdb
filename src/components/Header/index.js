@@ -1,20 +1,53 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
-import RMDBLogo from "../../images/react-movie-logo.svg";
 import TMDBLogo from "../../images/tmdb_logo.svg";
 
-import { Wrapper, Content, LogoImg, TMDBLogoImg } from "./Header.styles";
+import { Wrapper, Content, TMDBLogoImg, StyledLink } from "./Header.styles";
 
-const Header = () => (
-  <Wrapper>
-    <Content>
-      <Link to="/">
-        <LogoImg src={RMDBLogo} alt="rmdb-logo" />
-      </Link>
-      <TMDBLogoImg src={TMDBLogo} alt="tmdb-logo" />
-    </Content>
-  </Wrapper>
-);
+import { Context } from "../../context";
+
+const Header = () => {
+  const [user, setUser] = useContext(Context);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    setUser(null);
+    navigate("/");
+  };
+
+  return (
+    <Wrapper>
+      <Content>
+        <Link to="/">
+          <TMDBLogoImg src={TMDBLogo} alt="tmdb-logo" />
+        </Link>
+        {user && (
+          <div>
+            {`Hi, ${user.username}, your`}
+            <StyledLink to="/favlist">
+              <span>Favlist</span>
+            </StyledLink>
+          </div>
+        )}
+
+        {user ? (
+          <StyledLink to="/" onClick={handleLogout}>
+            <span>Logout</span>
+          </StyledLink>
+        ) : (
+          <div>
+            <StyledLink to="/login">
+              <span>Login</span>
+            </StyledLink>
+            <StyledLink to="/signup">
+              <span>Sign up</span>
+            </StyledLink>
+          </div>
+        )}
+      </Content>
+    </Wrapper>
+  );
+};
 
 export default Header;
