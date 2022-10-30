@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-// import API from "../../API";
 
 import Button from "../Button";
 import { Wrapper } from "./Signup.styles";
@@ -20,7 +19,7 @@ const Signup = () => {
     if (!username || !password || !email) return setError(true);
 
     try {
-      fetch("http://localhost:8080/signup", {
+      fetch("https://react-rmdb-backend-production.up.railway.app/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
