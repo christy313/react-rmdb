@@ -33,14 +33,11 @@ const Signup = () => {
         .then(res => res.json())
         .then(user => {
           if (user.id) {
-            setUser([
-              ...user,
-              {
-                id: user.id,
-                username: user.username,
-                email: user.email
-              }
-            ]);
+            setUser(...user, {
+              id: user.id,
+              username: user.username,
+              email: user.email
+            });
             navigate("/");
           }
         });
