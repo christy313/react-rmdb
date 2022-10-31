@@ -32,14 +32,14 @@ const Signup = () => {
       })
         .then(res => res.json())
         .then(user => {
-          if (user) {
-            setUser({
-              id: user.id,
-              username: user.username,
-              email: user.email
-            });
-            navigate("/");
-          }
+          // if (user) {
+          setUser({
+            id: user.id,
+            username: user.username,
+            email: user.email
+          });
+          navigate("/");
+          // }
         });
     } catch (error) {
       setError(true);
