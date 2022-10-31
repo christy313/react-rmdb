@@ -32,7 +32,7 @@ const Signup = () => {
       })
         .then(res => res.json())
         .then(user => {
-          if (user.id) {
+          if (user) {
             setUser({
               id: user.id,
               username: user.username,
