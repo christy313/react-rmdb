@@ -28,8 +28,7 @@ const Login = () => {
     if (!username || !password || !email) return setError(true);
 
     try {
-      fetch("https://react-rmdb-backend-production.up.railway.app/login", {
-        mode: "cors",
+      fetch("https://ilovemovie-backend.onrender.com/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
