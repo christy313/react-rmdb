@@ -19,7 +19,7 @@ const Signup = () => {
     if (!username || !password || !email) return setError(true);
 
     try {
-      fetch("https://react-rmdb-backend-production.up.railway.app/signup", {
+      fetch("https://ilovemovie.herokuapp.com/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
