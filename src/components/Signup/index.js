@@ -20,6 +20,7 @@ const Signup = () => {
 
     try {
       fetch("https://react-rmdb-backend-production.up.railway.app/signup", {
+        mode: "cors",
         method: "POST",
         headers: {
           "Content-Type": "application/json"
