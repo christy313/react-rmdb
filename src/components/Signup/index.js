@@ -31,7 +31,7 @@ const Signup = () => {
           password: password
         })
       })
-        .then(res => res.json())
+        .then(res => console.log(res))
         .then(user => {
           console.log(user);
           if (user.id) {
