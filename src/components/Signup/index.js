@@ -30,7 +30,7 @@ const Signup = () => {
       })
     })
       .then(res => {
-        responseClone = response.clone();
+        responseClone = res.clone();
         return res.json();
       })
       .then(
