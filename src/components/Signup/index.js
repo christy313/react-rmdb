@@ -22,7 +22,8 @@ const Signup = () => {
       fetch("https://ilovemovie.herokuapp.com/signup", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*"
         },
         body: JSON.stringify({
           username: username,
@@ -32,7 +33,6 @@ const Signup = () => {
       })
         .then(res => console.log(res))
         .then(user => {
-          console.log(user);
           if (user.id) {
             setUser({
               id: user.id,
