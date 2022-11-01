@@ -38,7 +38,7 @@ const Signup = () => {
               username: user.username,
               email: user.email
             });
-            return navigate("/");
+            navigate("/");
           }
         });
     } catch (error) {
