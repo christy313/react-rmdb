@@ -39,7 +39,8 @@ const Signup = () => {
           });
           navigate("/");
         }
-      });
+      })
+      .catch(err => console.log(err));
   };
 
   const handleInput = e => {
