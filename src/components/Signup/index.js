@@ -18,7 +18,7 @@ const Signup = () => {
   const handleSubmit = () => {
     if (!username || !password || !email) return setError(true);
 
-    fetch("https://ilovemovie.herokuapp.com/ilovemovie/signup", {
+    fetch("https://ilovemovie.herokuapp.com/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
