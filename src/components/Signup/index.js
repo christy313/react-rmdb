@@ -18,33 +18,29 @@ const Signup = () => {
   const handleSubmit = () => {
     if (!username || !password || !email) return setError(true);
 
-    try {
-      fetch("https://ilovemovie.herokuapp.com/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*"
-        },
-        body: JSON.stringify({
-          username: username,
-          email: email,
-          password: password
-        })
+    fetch("https://ilovemovie.herokuapp.com/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*"
+      },
+      body: JSON.stringify({
+        username: username,
+        email: email,
+        password: password
       })
-        .then(res => res.json())
-        .then(user => {
-          if (user.id) {
-            setUser({
-              id: user.id,
-              username: user.username,
-              email: user.email
-            });
-            navigate("/");
-          }
-        });
-    } catch (error) {
-      setError(true);
-    }
+    })
+      .then(res => res.json())
+      .then(user => {
+        if (user.id) {
+          setUser({
+            id: user.id,
+            username: user.username,
+            email: user.email
+          });
+          navigate("/");
+        }
+      });
   };
 
   const handleInput = e => {
