@@ -30,6 +30,7 @@ const Login = () => {
     try {
       fetch("https://react-rmdb-backend-production.up.railway.app/login", {
         method: "POST",
+        mode: "cors",
         headers: {
           "Content-Type": "application/json"
         },
