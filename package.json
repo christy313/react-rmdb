@@ -24,7 +24,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "https://ilovemovie.netlify.app/",
   "eslintConfig": {
     "extends": [
       "react-app",
