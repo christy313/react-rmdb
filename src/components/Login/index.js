@@ -30,7 +30,6 @@ const Login = () => {
     try {
       fetch("https://ilovemovie.herokuapp.com/login", {
         method: "POST",
-        mode: "no-cors",
         headers: {
           "Content-Type": "application/json"
         },

@@ -21,7 +21,6 @@ const Signup = () => {
     try {
       fetch("https://ilovemovie.herokuapp.com/signup", {
         method: "POST",
-        mode: "no-cors",
         headers: {
           "Content-Type": "application/json"
         },
