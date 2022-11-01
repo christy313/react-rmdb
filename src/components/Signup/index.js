@@ -33,6 +33,7 @@ const Signup = () => {
       })
         .then(res => res.json())
         .then(user => {
+          console.log(user);
           if (user.id) {
             setUser({
               id: user.id,
