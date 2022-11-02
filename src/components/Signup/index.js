@@ -19,7 +19,7 @@ const Signup = () => {
     if (!username || !password || !email) return setError(true);
     var responseClone; // 1
 
-    fetch("https://react-rmdb-backend-production.up.railway.app/signup", {
+    fetch("https://ilovemovie.herokuapp.com/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
