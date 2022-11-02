@@ -30,10 +30,7 @@ const Signup = () => {
         password: password
       })
     })
-      .then(res => {
-        responseClone = res.clone();
-        return res.json();
-      })
+      .then(res => res.text())
       .then(
         user => {
           if (user.id) {
