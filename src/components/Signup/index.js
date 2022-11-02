@@ -17,7 +17,6 @@ const Signup = () => {
 
   const handleSubmit = () => {
     if (!username || !password || !email) return setError(true);
-    var responseClone;
     fetch("https://react-rmdb-backend-production.up.railway.app/signup", {
       method: "POST",
       headers: {
@@ -30,35 +29,17 @@ const Signup = () => {
         password: password
       })
     })
-      .then(res => res.text())
-      .then(
-        user => {
-          if (user.id) {
-            setUser({
-              id: user.id,
-              username: user.username,
-              email: user.email
-            });
-            navigate("/");
-          }
-        },
-        function(rejectionReason) {
-          // 3
-          console.log(
-            "Error parsing JSON from response:",
-            rejectionReason,
-            responseClone
-          ); // 4
-          responseClone
-            .text() // 5
-            .then(function(bodyText) {
-              console.log(
-                "Received the following instead of valid JSON:",
-                bodyText
-              ); // 6
-            });
+      .then(res => res.json())
+      .then(user => {
+        if (user.id) {
+          setUser({
+            id: user.id,
+            username: user.username,
+            email: user.email
+          });
+          navigate("/");
         }
-      )
+      })
       .catch(err => console.log(err));
   };
 
