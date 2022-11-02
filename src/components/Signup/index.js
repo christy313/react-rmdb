@@ -33,16 +33,6 @@ const Signup = () => {
     })
       .then(res => {
         responseClone = res.clone(); // 2
-        const { username, email, password } = req.body;
-        console.log(
-          "UserName-",
-          username,
-          "Email-",
-          email,
-          "password",
-          password
-        );
-
         return res.json();
       })
       .then(
