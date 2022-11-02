@@ -17,7 +17,7 @@ const Signup = () => {
 
   const handleSubmit = () => {
     if (!username || !password || !email) return setError(true);
-    var responseClone; // 1
+    // var responseClone; // 1
 
     fetch("https://ilovemovie.herokuapp.com/signup", {
       method: "POST",
@@ -32,7 +32,7 @@ const Signup = () => {
       })
     })
       .then(res => {
-        responseClone = res.clone(); // 2
+        // responseClone = res.clone(); // 2
         return res.json();
       })
       .then(
@@ -45,23 +45,23 @@ const Signup = () => {
             });
             navigate("/");
           }
-        },
-        function(rejectionReason) {
-          // 3
-          console.log(
-            "Error parsing JSON from response:",
-            rejectionReason,
-            responseClone
-          ); // 4
-          responseClone
-            .text() // 5
-            .then(function(bodyText) {
-              console.log(
-                "Received the following instead of valid JSON:",
-                bodyText
-              ); // 6
-            });
         }
+        // function(rejectionReason) {
+        //   // 3
+        //   console.log(
+        //     "Error parsing JSON from response:",
+        //     rejectionReason,
+        //     responseClone
+        //   ); // 4
+        //   responseClone
+        //     .text() // 5
+        //     .then(function(bodyText) {
+        //       console.log(
+        //         "Received the following instead of valid JSON:",
+        //         bodyText
+        //       ); // 6
+        //     });
+        // }
       )
       .catch(err => console.log(err));
   };
