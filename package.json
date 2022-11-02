@@ -1,5 +1,6 @@
 {
   "name": "react-rmdb",
+  "homepage": "https://github.com/christy313/react-rmdb",
   "version": "0.1.0",
   "private": true,
   "proxy": "https://react-rmdb-backend-production.up.railway.app/",
