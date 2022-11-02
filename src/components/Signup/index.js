@@ -44,23 +44,23 @@ const Signup = () => {
             });
             navigate("/");
           }
+        },
+        function(rejectionReason) {
+          // 3
+          console.log(
+            "Error parsing JSON from response:",
+            rejectionReason,
+            responseClone
+          ); // 4
+          responseClone
+            .text() // 5
+            .then(function(bodyText) {
+              console.log(
+                "Received the following instead of valid JSON:",
+                bodyText
+              ); // 6
+            });
         }
-        // function(rejectionReason) {
-        //   // 3
-        //   console.log(
-        //     "Error parsing JSON from response:",
-        //     rejectionReason,
-        //     responseClone
-        //   ); // 4
-        //   responseClone
-        //     .text() // 5
-        //     .then(function(bodyText) {
-        //       console.log(
-        //         "Received the following instead of valid JSON:",
-        //         bodyText
-        //       ); // 6
-        //     });
-        // }
       )
       .catch(err => console.log(err));
   };
