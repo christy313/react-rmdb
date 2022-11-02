@@ -18,6 +18,9 @@ const Signup = () => {
   const handleSubmit = () => {
     if (!username || !password || !email) return setError(true);
     var responseClone; // 1
+    const { username, email, password } = req.body;
+    console.log("UserName-", username, "Email-", email, "password", password);
+
     fetch("https://react-rmdb-backend-production.up.railway.app/signup", {
       method: "POST",
       headers: {
