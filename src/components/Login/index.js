@@ -27,7 +27,7 @@ const Login = () => {
   const handleSubmit = () => {
     if (!username || !password || !email) return setError(true);
 
-    fetch("https://react-rmdb-backend-production.up.railway.app/login", {
+    fetch("https://ilovemovie-backend.onrender.com/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
