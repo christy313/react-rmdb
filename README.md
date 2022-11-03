@@ -39,7 +39,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 ## Stacks
 
-Front-end: React / Hooks / styled-component 
+Front-end: React / Hooks / styled-component \
 Back-end: Node / Express / PostgreSQL / [knex](https://knexjs.org/)
 
 ## File structure
