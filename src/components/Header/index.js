@@ -31,7 +31,7 @@ const Header = () => {
           </div>
         )} */}
 
-        {user ? (
+        {/* {user ? (
           <StyledLink to="/" onClick={handleLogout}>
             <span>Logout</span>
           </StyledLink>
@@ -44,7 +44,7 @@ const Header = () => {
               <span>Sign up</span>
             </StyledLink>
           </div>
-        )}
+        )} */}
       </Content>
     </Wrapper>
   );
